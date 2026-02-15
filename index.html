@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Porządek w Budowlance | Prosty system dla Twojej firmy</title>
+    <meta name="description" content="Pomagam małym firmom budowlanym ogarnąć chaos w klientach i zleceniach. Prosty system bez zbędnej technologii.">
+    
+    <!-- Tailwind CSS dla wyglądu -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tłumacz Babel: Pozwala przeglądarce czytać pliki .tsx -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        #error-display { display: none; position: fixed; inset: 0; background: white; color: red; padding: 20px; z-index: 9999; font-family: monospace; }
+    </style>
+
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.460.0?external=react,react-dom",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
+    <div id="root"></div>
+    <div id="error-display"></div>
+
+    <!-- Skrypt sprawdzający błędy -->
+    <script>
+        window.onerror = function(msg, url, line) {
+            const display = document.getElementById('error-display');
+            display.style.display = 'block';
+            display.innerHTML = '<h3>Wystąpił błąd podczas ładowania strony:</h3>' + msg + '<br>Linia: ' + line;
+        };
+    </script>
+
+    <!-- Ładujemy index.tsx używając tłumacza Babel -->
+    <script type="text/babel" data-type="module" data-presets="react,typescript" src="index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
